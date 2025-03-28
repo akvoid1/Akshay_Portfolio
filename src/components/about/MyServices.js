@@ -1,32 +1,29 @@
 import React from "react";
-import { FaAppStoreIos } from "react-icons/fa";
-import { AiTwotoneAppstore } from "react-icons/ai";
-import { SiAntdesign } from "react-icons/si";
-import { BiCodeAlt } from "react-icons/bi";
+import { FaRobot, FaMicrochip, FaChartLine, FaSearch } from "react-icons/fa";
 import ServicesCard from "./ServicesCard";
 
 const MyServices = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
       <ServicesCard
-        icons={<BiCodeAlt />}
+        icons={<FaRobot />}
+        title="Machine Learning Solutions"
+        subTitle="Leverage the power of AI to detect fraud, predict trends, and optimize business operations. With experience in building ML models using XGBoost and Spark MLlib, I provide data-driven insights for smarter decision-making."
+      />
+      <ServicesCard
+        icons={<FaMicrochip />}
+        title="IoT Development"
+        subTitle="Develop and implement IoT solutions for real-time data monitoring and analysis. My expertise in MQTT, Azure IoT Hub, and data streaming enables seamless connectivity and intelligent automation."
+      />
+      <ServicesCard
+        icons={<FaChartLine />}
+        title="Data Analytics and Visualization"
+        subTitle="Transform raw data into actionable insights using tools like Power BI and SQL. I specialize in building interactive dashboards that help businesses visualize trends and make informed decisions."
+      />
+      <ServicesCard
+        icons={<FaSearch />}
         title="Web Development"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
-      />
-      <ServicesCard
-        icons={<SiAntdesign />}
-        title="Web Design"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
-      />
-      <ServicesCard
-        icons={<AiTwotoneAppstore />}
-        title="Mobile Application"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
-      />
-      <ServicesCard
-        icons={<FaAppStoreIos />}
-        title="SEO"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
+        subTitle="Create dynamic and responsive web applications using .NET MVC, JavaScript, and Node.js. From intuitive front-end design to robust back-end logic, I ensure a seamless user experience."
       />
     </div>
   );

@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import { FaUser, FaEnvelope } from "react-icons/fa";
 import { IoIosPaper } from "react-icons/io";
 import { MdWork, MdOutlineClose } from "react-icons/md";
-import { SiGooglechat } from "react-icons/si";
 import { BsTelephonePlusFill } from "react-icons/bs";
 import Left from "./components/home/Left";
 import About from "./components/about/About";
 import Resume from "./components/resume/Resume";
 import Projects from "./components/projects/Projects";
-import Blog from "./components/blog/Blog";
 import Contact from "./components/contact/Contact";
 import Sidenav from "./components/home/sidenav/Sidenav";
 
@@ -17,7 +15,6 @@ const Home = () => {
   const [about, setAbout] = useState(true);
   const [resume, setResume] = useState(false);
   const [projects, setProjects] = useState(false);
-  const [blog, setBlog] = useState(false);
   const [contact, setContact] = useState(false);
   const [sidenav, setSidenav] = useState(false);
   const ref = useRef();
@@ -29,11 +26,12 @@ const Home = () => {
       }
     });
   }, []);
+
   return (
     <div className="w-full lgl:w-[85%] h-full lgl:h-[85%] bg-transparent text-white z-50 flex items-start justify-between p-4 lgl:p-0">
-      {/* ================= Left Icons End here ======================== */}
+      {/* ================= Left Icons Start here ======================== */}
       <div className="w-16 h-96 bg-transparent hidden lgl:flex flex-col gap-4">
-        {/* ======= Home Icon start */}
+        {/* ======= Menu Icon Start */}
         <div
           onClick={() => setSidenav(true)}
           className="w-full h-20 bg-bodyColor rounded-3xl flex justify-center items-center cursor-pointer group"
@@ -44,7 +42,7 @@ const Home = () => {
             <span className="w-8 h-[2px] bg-textColor inline-block -translate-x-3.5 group-hover:translate-x-0 transition-transform duration-300 group-hover:bg-designColor"></span>
           </div>
         </div>
-        {/* ======= Home Icon End */}
+        {/* ======= Menu Icon End */}
 
         {/* ============= Sidenav Start here ============= */}
         {sidenav && (
@@ -69,7 +67,8 @@ const Home = () => {
           </div>
         )}
         {/* ============= Sidenav End here =============== */}
-        {/* ======= Other Icons Start */}
+        
+        {/* ======= Sidebar Icons Start ======= */}
         <div className="w-full h-80 bg-bodyColor rounded-3xl flex flex-col items-center justify-between py-6">
           {/* About Icon */}
           <span
@@ -77,15 +76,13 @@ const Home = () => {
               setAbout(true) &
               setResume(false) &
               setProjects(false) &
-              setBlog(false) &
               setContact(false)
             }
             className={`${
               about
                 ? "text-designColor"
                 : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
-            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
-            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+            }`}
           >
             <FaUser />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
@@ -98,58 +95,36 @@ const Home = () => {
               setAbout(false) &
               setResume(true) &
               setProjects(false) &
-              setBlog(false) &
               setContact(false)
             }
             className={`${
               resume
                 ? "text-designColor"
                 : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
-            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            }`}
           >
             <IoIosPaper />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
               Resume
             </span>
           </span>
-          {/* Project Icon */}
+          {/* Projects Icon */}
           <span
             onClick={() =>
               setAbout(false) &
               setResume(false) &
               setProjects(true) &
-              setBlog(false) &
               setContact(false)
             }
             className={`${
               projects
                 ? "text-designColor"
                 : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
-            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            }`}
           >
             <MdWork />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
               Projects
-            </span>
-          </span>
-          {/* Blog Icon */}
-          <span
-            onClick={() =>
-              setAbout(false) &
-              setResume(false) &
-              setProjects(false) &
-              setBlog(true) &
-              setContact(false)
-            }
-            className={`${
-              blog
-                ? "text-designColor"
-                : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
-            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
-          >
-            <SiGooglechat />
-            <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
-              Blog
             </span>
           </span>
           {/* Contact Icon */}
@@ -158,20 +133,20 @@ const Home = () => {
               setAbout(false) &
               setResume(false) &
               setProjects(false) &
-              setBlog(false) &
               setContact(true)
             }
             className={`${
               contact
                 ? "text-designColor"
                 : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
-            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            }`}
           >
             <FaEnvelope />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
               Contact
             </span>
           </span>
+          {/* Call Icon */}
           <span className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group">
             <BsTelephonePlusFill />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
@@ -179,9 +154,10 @@ const Home = () => {
             </span>
           </span>
         </div>
-        {/* ======= Other Icons End */}
+        {/* ======= Sidebar Icons End ======= */}
       </div>
-      {/* ================= Left Icons Start here ====================== */}
+      {/* ================= Left Icons End here ====================== */}
+
       <div className="w-full lgl:w-[94%] h-full flex flex-col gap-6 lgl:gap-0 lgl:flex-row items-center">
         {/* ======================== Home Left Start here ============================ */}
         <Left />
@@ -192,7 +168,6 @@ const Home = () => {
             <About />
             <Resume />
             <Projects />
-            <Blog />
             <Contact />
           </div>
           {/* ======================== Smaller device content End ========================== */}
@@ -206,7 +181,6 @@ const Home = () => {
                 <About />
               </motion.div>
             )}
-
             {resume && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -223,15 +197,6 @@ const Home = () => {
                 transition={{ duration: 0.5 }}
               >
                 <Projects />
-              </motion.div>
-            )}
-            {blog && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Blog />
               </motion.div>
             )}
             {contact && (
